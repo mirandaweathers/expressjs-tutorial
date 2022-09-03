@@ -1,5 +1,6 @@
 require('dotenv').config(); // use the .env file
 const menu = require('./Models/drinkMenu.js');
+const orders = require('./Models/orderList.js');
 
 const express = require('express'); // import express library
 const app = express(); // create instance of express app
@@ -16,6 +17,8 @@ const port = process.env.PORT;
 
 app.listen(port, () => console.log(`Now listening on port ${port}`)); // string interpolation
 
+// DRINK ROUTES
+
 app.get('/drinks', (req, res) => {
     // req = request = all info abt request - cookies, headers, ip address, etc
     // res = response = how the request went and what happened, status message
@@ -26,5 +29,18 @@ app.get('/drinks', (req, res) => {
 app.post('/drinks', (req, res) => {
     console.log(req.body);
     menu.push(req.body)
+    res.sendStatus(201);
+})
+
+// ORDER ROUTES
+
+app.get('/orders', (req, res) => {
+    res.send(orders);
+    console.log(orders);
+})
+
+app.post('/orders', (req, res) => {
+    console.log(req.body);
+    orders.push(req.body)
     res.sendStatus(201);
 })
