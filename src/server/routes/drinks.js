@@ -1,4 +1,4 @@
-const menu = require('../Models/drinkMenu');
+const menu = require('../models/drinkMenu');
 const { Router } = require('express');
 const router = Router();
 
