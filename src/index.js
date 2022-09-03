@@ -1,5 +1,5 @@
 require('dotenv').config(); // use the .env file
-const menu = require('../drinkMenu.js');
+const menu = require('./Models/drinkMenu.js');
 
 const express = require('express'); // import express library
 const app = express(); // create instance of express app
